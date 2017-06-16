@@ -17,11 +17,9 @@ if nx~=length(x)
     error('Rows of v are not equal to the length of x!');
 end
 
-vq = zeros(length(xq),nd);
-for k=1:length(xq)
-    if xq(k)<=xmax
-        vq(k,:) = interp1(x,v,xq(k),method);
-    else
-         vq(k,:) = interp1(x,v,rem(xq(k),xmax),method);
-    end
+% Repeat sequence
+if max(xq)>xmax
+    xq(xq>xmax) = rem(xq(xq>xmax),xmax);
 end
+
+vq = interp1(x,v,xq,method);
