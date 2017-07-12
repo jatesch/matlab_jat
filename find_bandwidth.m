@@ -1,7 +1,18 @@
 function bw = find_bandwidth(px,freq,m)
-% bw = FIND_BANDWIDTH(px,freq,m) uses interpolation to compute the m dB crossover frequency
-% of the power specrum contained in px. If unspecified, m = -3dB.
-% Assumes px is NOT in dB.
+% bw = FIND_BANDWIDTH(px,freq,m) 
+%
+% Uses interpolation to compute the m dB crossover frequency
+% of the error rejection curve px. 
+%
+% Inputs:
+%   px      Sensitivity magnitude response (NOT in dB)
+%   freq    Corresponding frequency grid
+%   m       Desired bandwidth magnitude in dB. Default -3 dB.
+%
+% Outputs:
+%   bw      First m dB crossover frequency in the same units as freq
+
+% jtesch 7/2017
 
 if nargin==2
     m = -3;
@@ -9,7 +20,7 @@ end
 
 px = 20*log10(px);
 
-
+ 
 % Throw out 0Hz
 if freq(1)==0
     freq = freq(2:end);
