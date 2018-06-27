@@ -26,7 +26,5 @@ wn = 1/(2*ts);          % Nyquist
 
 om = 0:w0:wn;           % frequency axis
 
-
-
 H = fft(ydot)*ts;
 H = H(1:length(om));
