@@ -30,5 +30,5 @@ for k=n:ns
 end
 
 y = y(:,n:end);
-B = (H'\y')';
-
+%B = (H'\y')';
+B = (pinv(H')*y')';
