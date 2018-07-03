@@ -6,10 +6,7 @@ p = 2;          % Output vector dimension
 q = 3;          % Input vector dimension
 
 % Make coefficients
-B = [];
-for k=1:m
-    B = [B, randn(p,q)];
-end
+B = randn(p,q*m);
 
 % Make input sequence
 u = rand(q,s);
