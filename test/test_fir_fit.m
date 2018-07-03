@@ -20,9 +20,6 @@ end
 y = B*H;
 
 % Estimate B from output 
-H = H(:,M:end);
-Y = y(:,M:end);
-
 B_est = fir_fit(y,u,M);
 
 error = norm(B-B_est)/norm(B)
