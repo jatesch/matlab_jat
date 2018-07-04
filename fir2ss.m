@@ -3,9 +3,24 @@ function Hss = fir2ss(H,h,ts)
 % Makes a state-space system from the FIR filter with coefficient matrices
 % contained in H.
 %
-% If H = [H(1) H(2) ... H(h)], fir2ss assumes the following FIR filter:
+% If H = [H(0) H(1) ... H(h-1)], fir2ss assumes the following FIR filter:
+%   y(t) = H(0)*w(t) + H(1)*w(t-1) + ... + H(h-1)*w(t-h)
 %
-%   y(t) = H(h)*w(t) + H(h-1)*w(t-1) + H(h-2)*w(t-2) + ... + H(1)*w(t-h+1)
+% Inputs:
+% -------
+% H : matrix
+%   Matrix of h FIR filter coefficients.
+%
+% h : scalar
+%   FIR filter order.
+%
+% ts : scalar (optional)
+%   Sample time.
+%
+% Ouputs:
+% -------
+% Hss : state space object
+%   State space representation of the FIR filter.
 
 if nargin==2, ts = -1; end
 
