@@ -1,5 +1,5 @@
 function B = fir_fit(y,u,n)
-% B = fir_fit(y,u)
+% B = fir_fit(y,u,n)
 % Finds FIR filter coefficients [B(0) B(1) B(2) ... B(n-1)]
 %   y(t) = B(0)*u(t) + B(1)*u(t-1) + ... + B(n-1)*u(t-n)
 %
