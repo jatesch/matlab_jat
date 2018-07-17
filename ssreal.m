@@ -15,7 +15,7 @@ function [Ghat,ghat,s] = ssreal(g,N,type)
 % type : string (optional)
 %   String indicating the type of data contained in g.
 %   'impulse' == g is an impulse response sequence.
-%   'step' == g is a step response sequence. The resulting estimate is multiplied by a differentiator to produce Ghat.
+%   'step' == g is a step response sequence. The resulting estimate is multiplied by a differentiator to produce Ghat. Note that additional zpk cancellation may be needed.
 %
 % Output:
 % -------
